@@ -11,6 +11,8 @@ func main() {
 	fmt.Println(i)  // see the new value of i
 
 	p = &j         // point to j
+
+  // *p is deferencing the pointer to get the value (*p = 2701)
 	*p = *p / 37   // divide j through the pointer
 	fmt.Println(j) // see the new value of j
 }
