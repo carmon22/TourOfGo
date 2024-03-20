@@ -85,10 +85,38 @@ func main() {
 	  d := c[2:5]
 	  printSlice("d", d)
   }
+  // To append to a slice use the built-in package "append"
+  {
+    var s []int
+    printSlice1(s)
+
+    // append works on nil slices.
+    s = append(s, 0)
+    printSlice1(s)
+
+    // The slice can add more than one element at a time.
+    s = append(s, 2, 3, 4)
+    printSlice1(s)
+  }
+  // Range
+  {
+    var pow = []int{1, 2, 4, 8, 16, 32, 64, 128}
+
+    func power(pow []int){
+      for i, v := range pow {
+        fmt.Printf("2**%d\n", i, v)
+      }
+    }
+    power(pow)
+  }
 }
 
 func printSlice(s string, x []int) {
 	fmt.Printf("%s len=%d cap=%d %v\n",
 		s, len(x), cap(x), x)
-  }
+}
+
+func printSlice1(s []int) {
+  fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+}
 
